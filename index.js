@@ -11,15 +11,14 @@ const PORT = process.env.PORT || 5000;
 // Connect to DB
 mongoose.connect(process.env.DATABASE_URL, () => console.log('Connected...'));
 
-// Config
-app.set('port', process.env.PORT || 5000);
+// Middlewares
 app.use(express.json());
 
-// Middlewares
+// Middleware Routes
 app.use('/api/user', authRoute);
 app.use('/api/posts', postsRoute);
 
-// Routes
+// Normal Routes
 app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
 
 app.listen(PORT);
