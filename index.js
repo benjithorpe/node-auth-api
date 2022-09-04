@@ -19,4 +19,4 @@ app.use('/api/user', authRoute);
 
 app.get('/', (req, res) => res.send("check '/api/user' for the user API"));
 
-app.listen(app.get('port'));
+app.listen(PORT);
