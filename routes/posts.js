@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const router = require('express').Router();
 
-const verifyToken = require('../verifyToken.js');
+const verifyToken = require('../utils/verifyToken.js');
 
 // Posts data from https://jsonplaceholder.typicode.com/posts
 const posts = JSON.parse(
