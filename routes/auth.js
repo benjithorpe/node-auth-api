@@ -48,9 +48,8 @@ router.post('/login', async (req, res) => {
   if (!validPassword) return res.send('Password is not correct!');
 
   // Create and assign new JWT to the user
-  jwt.sign({ id: user._id });
-
-  res.status(200).send(req.body);
+  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY);
+  res.header('auth-token', token).send(token);
 });
 
 module.exports = router;
