@@ -19,6 +19,7 @@ app.use(express.json());
 app.use('/api/user', authRoute);
 app.use('/api/posts', postsRoute);
 
-app.get('/', (req, res) => res.send("check '/api/user' for the user API"));
+// Routes
+app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
 
 app.listen(PORT);
