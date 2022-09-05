@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv/config');
+const cors = require('cors');
 
 const authRoute = require('./routes/auth.js');
 const postsRoute = require('./routes/posts.js');
@@ -13,6 +14,7 @@ mongoose.connect(process.env.DATABASE_URL, () => console.log('Connected...'));
 
 // Middlewares
 app.use(express.json());
+app.use(cors({ origin: '*' }));
 
 // Middleware Routes
 app.use('/api/user', authRoute);
